@@ -26,6 +26,9 @@ if N <= 10:
     bits = lines.split('\n')
     for bit in bits:
         print bit.rstrip()
+    with open('vp/'+filename,'w') as fp:
+        for bit in bits:
+            fp.write(bit.rstrip()+'\n')
 else:
     command = './a.out 10 '+str(M)
     lines = commands.getoutput(command)

@@ -28,6 +28,21 @@ void solve() {
 
     for ( int i = 1 ; i < M ; i++ ) 
         for ( ll j = 0 ; j < (1ll<<N) ; j++ ) {
+            for ( ll k = 0 ; k < (1ll<<N) ; k++ ) {
+                if ( j == k ) continue;
+                ddll prev = d[i-1][k];
+                double dist = getDistance(j,k);
+                ll parent = prev.second;
+                for ( int l = i-2 ; l >= 0 ; l-- ) {
+                    dist += getDistance(j,parent);
+                    parent = d[l][parent].second;
+                }
+                if ( d[i][j].first > prev.first + dist ) {
+                    d[i][j].first = prev.first + dist;
+                    d[i][j].second = k;
+                }
+            }
+            /*
             vector<ll> nowPermutation = getPermutation(__builtin_popcount(j));
             for ( int k = 0 ; k < (int)nowPermutation.size() ; k++ ) {
                 if ( j == nowPermutation[k] ) continue;
@@ -44,6 +59,7 @@ void solve() {
                 }
 next:;
             }
+            */
         }
     ll lastPoint = 0;
     double mn = 987654321;
