@@ -19,7 +19,7 @@ N = int(options.N)
 M = int(options.M)
 filename = options.filename
 
-if N <= 10:
+if N <= 12:
     command = './a.out '+str(N)+' '+str(M)
     lines = commands.getoutput(command)
     
@@ -30,7 +30,7 @@ if N <= 10:
         for bit in bits:
             fp.write(bit.rstrip()+'\n')
 else:
-    command = './a.out 10 '+str(M)
+    command = './a.out 11 '+str(M)
     lines = commands.getoutput(command)
 
     bits = lines.split('\n')
@@ -42,9 +42,9 @@ else:
     ans = []
     for i in xrange(M):
         now = ''
-        for j in xrange(N//10):
+        for j in xrange(N//11):
             now = now + bits[i]
-        for j in xrange(N%10):
+        for j in xrange(N%11):
             now = now + a[i][j] + ' '
         ans.append(now)
 

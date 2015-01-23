@@ -17,12 +17,12 @@ double getDistance(ll p1,ll p2) {
     double ret = dabs(sqrt((double)N/2.0f)-dist);
     return ret;
 }
+ddll d[111][(1ll<<17)];
 void solve() {
-    ddll d[111][(1ll<<11)];
     for ( int i = 0 ; i < 111 ; i++ ) 
-        for ( ll j = 0 ; j < (1ll<<11) ; j++ ) 
+        for ( ll j = 0 ; j < (1ll<<17) ; j++ ) 
             d[i][j].first = 987654321, d[i][j].second = -1;
-    
+
     for ( int j = 0 ; j < (1ll<<N) ; j++ ) 
         d[0][j].first = 0;
 
@@ -76,6 +76,12 @@ next:;
         lastPoint = d[i][lastPoint].second;
     }
 
+    for ( int i = 0 ; i < (int)v.size() ; i++ ) {
+        for ( int j = 0 ; j < (int)v[i].length() ; j++ ) 
+            printf("%c ",v[i][j]);
+        puts("");
+    }
+    /*
     vector<string> ans;
     for ( int i = 0 ; i < M ; i++ ) {
         string now = "";
@@ -89,8 +95,9 @@ next:;
     for ( int i = 0 ; i < (int)ans.size() ; i++ ) {
         for ( int j = 0 ; j < (int)ans[i].length() ; j++ ) 
             printf("%c ",ans[i][j]);
-            puts("");
+        puts("");
     }
+    */
 }
 string bitMaskToString(ll mask) {
     string ret = "";
