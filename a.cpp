@@ -42,24 +42,6 @@ void solve() {
                     d[i][j].second = k;
                 }
             }
-            /*
-            vector<ll> nowPermutation = getPermutation(__builtin_popcount(j));
-            for ( int k = 0 ; k < (int)nowPermutation.size() ; k++ ) {
-                if ( j == nowPermutation[k] ) continue;
-                ddll prev = d[i-1][nowPermutation[k]];
-                double dist = getDistance(j, nowPermutation[k]);
-                ll parent = prev.second;
-                for ( int l = i-2 ; l >= 0 ; l-- ) {
-                    dist += getDistance(j,parent);
-                    parent = d[l][parent].second;
-                }
-                if ( d[i][j].first > prev.first + dist ) {
-                    d[i][j].first = prev.first + dist;
-                    d[i][j].second = nowPermutation[k];
-                }
-next:;
-            }
-            */
         }
     ll lastPoint = 0;
     double mn = 987654321;
@@ -81,23 +63,6 @@ next:;
             printf("%c ",v[i][j]);
         puts("");
     }
-    /*
-    vector<string> ans;
-    for ( int i = 0 ; i < M ; i++ ) {
-        string now = "";
-        for ( int j = 0 ; j < N/10 ; j++ ) 
-            now += v[i];
-        for ( int j = 0 ; j < N%10 ; j++ ) 
-            now += v[i][j];
-        ans.push_back(now);
-    }
-
-    for ( int i = 0 ; i < (int)ans.size() ; i++ ) {
-        for ( int j = 0 ; j < (int)ans[i].length() ; j++ ) 
-            printf("%c ",ans[i][j]);
-        puts("");
-    }
-    */
 }
 string bitMaskToString(ll mask) {
     string ret = "";
