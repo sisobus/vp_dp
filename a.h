@@ -22,4 +22,9 @@ void solve();
 void go(ll mask,set<ll>& s);
 vector<ll> getPermutation(int size);
 void go_pbm(ll mask);
-void printBitMask(ll mask);
+void printBitMask(ll mask,int totalSize);
+
+#define MAX_DIMENSION_POW 6
+ll stringToLongLong(string now);
+vector<vector<string> > pre_makeTwoPowOptimalPoints();
+vector<vector<ll> > makeTwoPowOptimalPoints();
